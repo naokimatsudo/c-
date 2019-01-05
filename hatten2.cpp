@@ -1,4 +1,4 @@
-/* hatten1.cpp */
+/* hatten2.cpp */
 #include <iostream>
 #include <stdio.h>
 using namespace std;
