@@ -9,10 +9,11 @@ public:
 };
 
 class addressbook{
-    person friends[100];
+    person* friends;
     int numberOfFriends;
 public:
-    addressbook();
+    addressbook(int maximumFriends);
+    ~addressbook();
     void listFriends();
     void addFriend(string name);
     void addFriend(string name, string address);
@@ -20,8 +21,14 @@ public:
 };
 
 //constructor
-addressbook::addressbook(){
+addressbook::addressbook(int maximumFriends){
     numberOfFriends = 0;
+    friends = new person [maximumFriends];
+}
+
+addressbook::~addressbook()
+{
+    delete [] friends;
 }
 
 void addressbook::addFriend(string n){
@@ -54,7 +61,7 @@ person addressbook::find(string q){
 
 int main()
 {
-    addressbook abook;
+    addressbook abook(100);
     string name;
     string address;
     string query;
@@ -80,4 +87,6 @@ int main()
     }
     //cout << "\n名前：住所リスト\n";
     //abook.listFriends();
+
+    delete abook(100);
 }
